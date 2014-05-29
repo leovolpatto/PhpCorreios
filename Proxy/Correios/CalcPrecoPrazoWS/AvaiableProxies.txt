@@ -1,0 +1,11 @@
+CalcPrecoPrazoRestricao
+CalcPrecoPrazo
+CalcPreco
+CalcPrazoRestricao
+CalcPrecoPrazoData
+CalcPrazo
+CalcPrazoData
+CalcPrecoData
+
+
+http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx
