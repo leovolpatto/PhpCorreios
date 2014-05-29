@@ -21,6 +21,7 @@ $request->valorDeclarado = 0;
 
 $ret = $proxy->CalcPrecoPrazo($request);
 
+echo "<pre>";
 var_dump($ret);
 
 die;
