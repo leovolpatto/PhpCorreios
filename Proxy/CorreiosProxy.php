@@ -31,8 +31,9 @@ final class CorreiosProxy {
      * @return \PhpCorreios\Proxy\Correios\Rastreamento\RastreamentoResponse\RastreamentoResult[]
      */
     public function RastrearObjeto($codigo)
-    {
-        return new Correios\Rastreamento\RastreamentoResponse\RastreamentoResult();
+    {        
+        $r = new Correios\Rastreamento\RastreamentoObjetoMethod($this);
+        return $r->Request($codigo);
     }
     
 }

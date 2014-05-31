@@ -6,11 +6,7 @@ namespace PhpCorreios\Proxy\Correios\Rastreamento;
 
 
 abstract class RastreamentoWsMethodBase {
-    
-    /**
-     * @var \PhpCorreios\Util\CurlHeader
-     */
-    protected $curlHeader;
+
     /**
      * @var \PhpCorreios\Proxy\CorreiosProxy
      */
@@ -20,39 +16,22 @@ abstract class RastreamentoWsMethodBase {
     public function __construct(\PhpCorreios\Proxy\CorreiosProxy $proxy) {
        $this->proxy = $proxy; 
     }
-    
-    protected abstract function SetSoapActionMethod(&$soapActionMethod);
-
+     
     /**
-     * @return \PhpCorreios\Util\CurlBody
+     * @return RastreamentoResponse\RastreamentoResult
      */
-    protected abstract function CreateRequestBody(RequestModel\RequestBase $request);
+    protected abstract function AdaptResult($result);
 
     /**
-     * @return ResponseModel\CalcPrecoPrazoResponseBase
-     */    
-    protected abstract function AdaptResult(\PhpCorreios\Util\CurlResult $result);
-
-    protected function CreateCurlHeader()
+     * @return RastreamentoResponse\RastreamentoResult
+     */
+    public function Request($codigo)
     {
-        $this->curlHeader = new \PhpCorreios\Util\CurlHeader();
-        $this->curlHeader->soapAction = $this->soapActionMethod;
-        $this->curlHeader->host = $this->soapHost;
-        $this->curlHeader->postTo = $this->soapPostTo;
-    }    
-    
-    public function Request(RequestModel\RequestBase $request)
-    {
-        if($this->curlHeader == null)
-            $this->CreateCurlHeader();
-        
-        $curl = new \PhpCorreios\Util\Curl($this->proxy->address);
-        $result = $curl->Request($this->CreateRequestBody($request), $this->curlHeader);
-        
-        if($result instanceof \PhpCorreios\Util\Result\CurlErrorResult)
-            return new ResponseModel\Error ($result);
-        
-        return $this->AdaptResult($result);
+        $r = new Util\RastrearPedido();        
+	$xml = $r->rastrear( $codigo );
+	$obj_xml = simplexml_load_string($xml); 
+                
+        return $this->AdaptResult($obj_xml);
     }
 }
     
