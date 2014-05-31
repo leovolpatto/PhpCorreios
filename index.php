@@ -3,28 +3,16 @@
 require_once 'phpcorreios.inc.php';
 
 
-$proxy = new \PhpCorreios\Proxy\CorreiosProxy();
+$p = new PhpCorreios\Proxy\CorreiosProxy();
 
-$request = new \PhpCorreios\Proxy\Correios\CalcPrecoPrazoWS\RequestModel\CalcPrecoPrazoRequest();
-$request->alturaCm = 10;
-$request->avisoDeRecebimento = false;
-$request->cepDestino = '80810070';
-$request->cepOrigem = '95700000';
-$request->codigoDoServico = PhpCorreios\Proxy\Correios\CorreiosTiposDeServico::SEDEX_VAREJO;
-$request->comprimentoCm = 20;
-$request->diametroCm = 60;
-$request->formato = PhpCorreios\Proxy\Correios\CorreiosTiposDeFormato::CAIXA_PACOTE;
-$request->larguraCm = 15;
-$request->maoPropria = false;
-$request->pesoKg = 1;
-$request->valorDeclarado = 0;
+$p->RastrearObjeto("AA123456789BR");
 
-$ret = $proxy->CalcPrecoPrazo($request);
 
-echo "<pre>";
-var_dump($ret);
+
 
 die;
+
+
 
 // Funcao para converter um xml para array
 function Xml2array($contents, $get_attributes=0) 
@@ -110,6 +98,31 @@ function Xml2array($contents, $get_attributes=0)
     
         return($xml_array); 
 }   
+
+
+$proxy = new \PhpCorreios\Proxy\CorreiosProxy();
+
+$request = new \PhpCorreios\Proxy\Correios\CalcPrecoPrazoWS\RequestModel\CalcPrecoPrazoRequest();
+$request->alturaCm = 10;
+$request->avisoDeRecebimento = false;
+$request->cepDestino = '80810070';
+$request->cepOrigem = '95700000';
+$request->codigoDoServico = PhpCorreios\Proxy\Correios\CorreiosTiposDeServico::SEDEX_VAREJO;
+$request->comprimentoCm = 20;
+$request->diametroCm = 60;
+$request->formato = PhpCorreios\Proxy\Correios\CorreiosTiposDeFormato::CAIXA_PACOTE;
+$request->larguraCm = 15;
+$request->maoPropria = false;
+$request->pesoKg = 1;
+$request->valorDeclarado = 0;
+
+$ret = $proxy->CalcPrecoPrazo($request);
+
+echo "<pre>";
+var_dump($ret);
+
+die;
+
 
 $resp = Xml2array( $resposta, false );
 

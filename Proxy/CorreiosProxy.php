@@ -25,4 +25,14 @@ final class CorreiosProxy {
         
         return $this->calcPrecoPrazoMethod->Request($request);
     }
+    
+    /**
+     * @param string $codigo Ex.: AA123456789BR
+     * @return \PhpCorreios\Proxy\Correios\Rastreamento\RastreamentoResponse\RastreamentoResult[]
+     */
+    public function RastrearObjeto($codigo)
+    {
+        return new Correios\Rastreamento\RastreamentoResponse\RastreamentoResult();
+    }
+    
 }
