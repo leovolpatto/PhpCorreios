@@ -28,7 +28,7 @@ final class CorreiosProxy {
     
     /**
      * @param string $codigo Ex.: AA123456789BR
-     * @return \PhpCorreios\Proxy\Correios\Rastreamento\RastreamentoResponse\RastreamentoResult[]
+     * @return \PhpCorreios\Proxy\Correios\Rastreamento\RastreamentoResponse\RastreamentoResult
      */
     public function RastrearObjeto($codigo)
     {        

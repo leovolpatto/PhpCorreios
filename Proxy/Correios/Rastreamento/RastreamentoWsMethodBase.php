@@ -2,9 +2,9 @@
 
 namespace PhpCorreios\Proxy\Correios\Rastreamento;
 
-//http://sooho.com.br/rastrear/
-
-
+/**
+ * Baseado em http://sooho.com.br/rastrear/
+ */
 abstract class RastreamentoWsMethodBase {
 
     /**

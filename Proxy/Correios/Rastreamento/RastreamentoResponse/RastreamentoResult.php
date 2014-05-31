@@ -13,6 +13,4 @@ final class RastreamentoResult extends RastreamentoResultBase {
         array_push($this->rastreamentoDados, $dados);
     }
     
-    
-    
 }
