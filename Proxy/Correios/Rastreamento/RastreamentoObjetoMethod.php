@@ -14,46 +14,42 @@ final class RastreamentoObjetoMethod extends RastreamentoWsMethodBase {
         if (count($obj_xml->error) > 0)
             return new RastreamentoResponse\RastreamentoErroResult("Erro no XML de retorno: '$obj_xml->error'");
 
-        
-        $result = new RastreamentoResponse\RastreamentoResult();
-        
-        echo $obj_xml->qtd . "\n";
-        echo $obj_xml->TipoPesquisa . "\n";
-        echo $obj_xml->TipoResultado . "\n";
 
-        // se for uma lista de objetos percorre a lista
+        $result = new RastreamentoResponse\RastreamentoResult();
+
         foreach ($obj_xml->objeto as $o) {
-            echo $o->numero . "\n";
-            // percore todos os eventos registrados deste objeto
             foreach ($o->evento as $e) {
-                // 3 campos que raramente sao preenchidos
-                $recebedor = (!isset($e->recebedor)) ? ' ' : $e->recebedor;
-                $documento = (!isset($e->documento)) ? ' ' : $e->documento;
-                $comentario = (!isset($e->comentario)) ? ' ' : $e->comentario;
-                echo "
-							$e->tipo \n
-							$e->sto  \n
-							$e->data \n
-							$e->hora \n
-							$e->descricao \n
-							$recebedor \n
-							$documento \n
-							$comentario \n
-							$e->local \n
-							$e->codigo \n
-							$e->cidade \n
-							$e->uf \n
-							$e->status \n
-						";
-                // se existe node destino entao ...
-                if (count($e->destino) > 0){
-                    echo "
-							$e->destino->local \n
-							$e->destino->codigo \n
-							$e->destino->bairro / $e->destino->cidade \n
-							$e->destino->uf \n";
+                $rastreamentoDados = new \PhpCorreios\Proxy\Correios\Rastreamento\RastreamentoResponse\RastreamentoDados();
+                $rastreamentoDados->numero = $o->numero->__toString();
+
+                $rastreamentoDados->recebedor = (!isset($e->recebedor)) ? ' ' : $e->recebedor->__toString();
+                $rastreamentoDados->documento = (!isset($e->documento)) ? ' ' : $e->documento->__toString();
+                $rastreamentoDados->comentario = (!isset($e->comentario)) ? ' ' : $e->comentario->__toString();
+
+                $rastreamentoDados->tipo = $e->tipo->__toString();
+                $rastreamentoDados->sto = $e->sto->__toString();
+                $rastreamentoDados->data = $e->data->__toString();
+                $rastreamentoDados->hora = $e->hora->__toString();
+                $rastreamentoDados->descricao = $e->descricao->__toString();
+                $rastreamentoDados->local = $e->local->__toString();
+                $rastreamentoDados->codigo = $e->codigo->__toString();
+                $rastreamentoDados->cidade = $e->cidade->__toString();
+                $rastreamentoDados->uf = $e->uf->__toString();
+                $rastreamentoDados->status = $e->status->__toString();
+
+                if (count($e->destino) > 0) {
+                    $rastreamentoDados->localDestino = $e->destino->local->__toString();
+                    $rastreamentoDados->codigoDestino = $e->destino->codigo->__toString();
+                    $rastreamentoDados->bairroDestino = $e->destino->bairro->__toString();
+                    $rastreamentoDados->cidadeDestino = $e->destino->cidade->__toString();
+                    $rastreamentoDados->ufDestino = $e->destino->uf->__toString();
                 }
+
+                $result->addRastreamentoDados($rastreamentoDados);
             }
         }
+
+        return $result;
     }
+
 }

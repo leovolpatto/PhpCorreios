@@ -5,6 +5,7 @@ namespace PhpCorreios\Proxy\Correios\Rastreamento\RastreamentoResponse;
 final class RastreamentoDados {
 
     public $_id;
+    public $numero;
     public $tipo;
     public $sto;
     public $data;
@@ -18,5 +19,11 @@ final class RastreamentoDados {
     public $cidade;
     public $uf;
     public $status;
+    
+    public $localDestino;
+    public $codigoDestino;
+    public $bairroDestino;
+    public $cidadeDestino;
+    public $ufDestino;
 
 }
