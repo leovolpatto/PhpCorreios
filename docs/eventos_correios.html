@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Eventos Correios - Rastreamento</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <table style="border: 2px #ffffff solid" border="1px"><tbody><tr><td align="center" rowspan="2"><strong>Tipo</strong></td>
+                        <td align="center" rowspan="2"><strong>Evento</strong></td>
+                        <td align="center" colspan="2"><strong>Como era</strong></td>
+                        <td align="center" colspan="2"><strong>Como ficará </strong></td>
+                        <td align="center" rowspan="2"><strong>O que o usuário deve fazer</strong></td>
+                    </tr><tr><td align="center"><strong>Descrição</strong></td>
+                        <td align="center"><strong>Detalhe</strong></td>
+                        <td align="center"><strong>Descrição</strong></td>
+                        <td align="center"><strong>Detalhe</strong></td>
+                    </tr><tr><td align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td align="center">0</td>
+                        <td align="center"><strong>Entregue</strong></td>
+                        <td align="center">Recebido por</td>
+                        <td align="center"><strong>Objeto entregue ao destinatário</strong></td>
+                        <td align="center">Recebido por:</td>
+                        <td align="center">Finalizar a entrega. <br> Não é mais necessário prosseguir com o acompanhamento.</td>
+                    </tr><tr><td align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td align="center">1</td>
+                        <td align="center"><strong>Entrega Efetuada</strong></td>
+                        <td align="center">Objeto recebido por:</td>
+                        <td align="center"><strong>Objeto entregue ao destinatário</strong></td>
+                        <td align="center">Recebido por:</td>
+                        <td align="center">Finalizar a entrega. <br> Não é mais necessário prosseguir com o acompanhamento.</td>
+                    </tr><tr><td align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td align="center">2</td>
+                        <td align="center"><strong>Destinatário Ausente</strong></td>
+                        <td align="center">Encaminhado para entrega interna</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Carteiro não atendido</strong></td>
+                        <td align="center">Aguarde: Objeto estará disponível para retirada na unidade a ser informada.</td>
+                        <td align="center">Acompanhar. <br> O interessado deverá buscar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td align="center">3</td>
+                        <td align="center"><strong>Destinatário não apresentou-se para receber</strong></td>
+                        <td align="center">Objeto descartado</td>
+                        <td align="center"><strong>Remetente não retirou objeto na Unidade dos Correios</strong></td>
+                        <td align="center">Objeto em análise de destinação</td>
+                        <td align="center">Acompanhar. <br> O interessado não buscou o objeto na unidade dos Correios durante o período de guarda.</td>
+                    </tr><tr><td align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td align="center">4</td>
+                        <td align="center"><strong>Destinatário recusou-se a receber</strong></td>
+                        <td align="center">Objeto em devolução ao remetente</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Cliente recusou-se a receber</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td align="center">5</td>
+                        <td align="center"><strong>Entrega não efetuada</strong></td>
+                        <td align="center">Objeto em devolução ao remetente</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td align="center">6</td>
+                        <td align="center"><strong>Destinatário desconhecido</strong></td>
+                        <td align="center">Objeto em devolução ao remetente</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Cliente desconhecido no local</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">7</td>
+                        <td align="center"><strong>Endereço incompleto - em pesquisa</strong></td>
+                        <td align="center">Objeto sujeito a atraso na entrega</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Endereço incorreto</strong></td>
+                        <td align="center">Objeto sujeito a atraso na entrega ou a devolução ao remetente</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">8</td>
+                        <td align="center"><strong>Endereço incompleto - em pesquisa</strong></td>
+                        <td align="center">Objeto sujeito a atraso na entrega</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Endereço incorreto</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">9</td>
+                        <td align="center"><strong>Não localizado no fluxo postal</strong></td>
+                        <td align="center">Por favor, entre em contato conosco clicando aqui.</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Favor entrar em contato com os Correios.</td>
+                        <td align="center">Acionar atendimento dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">10</td>
+                        <td align="center"><strong>Destinatário mudou-se</strong></td>
+                        <td align="center">Objeto em devolução ao remetente</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Cliente mudou-se</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">12</td>
+                        <td align="center"><strong>Destinatário não apresentou-se para receber</strong></td>
+                        <td align="center">Objeto descartado</td>
+                        <td align="center"><strong>Remetente não retirou objeto na Unidade dos Correios</strong></td>
+                        <td align="center">Objeto em análise de destinação</td>
+                        <td align="center">Acionar atendimento dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">19</td>
+                        <td align="center"><strong>Endereço incorreto</strong></td>
+                        <td align="center">Objeto em devolução ao remetente</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Endereço incorreto</strong></td>
+                        <td align="center">Objeto sujeito a atraso na entrega ou a devolução ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">20</td>
+                        <td align="center"><strong>Destinatário ausente</strong></td>
+                        <td align="center">Será realizada nova tentativa de entrega</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Carteiro não atendido</strong></td>
+                        <td align="center">Será realizada nova tentativa de entrega</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">21</td>
+                        <td align="center"><strong>Destinatário ausente em 3 tentativas de entrega</strong></td>
+                        <td align="center">Objeto em devolução ao remetente</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Carteiro não atendido</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">22</td>
+                        <td align="center"><strong>Objeto devolvido aos correios</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto devolvido aos Correios</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">23</td>
+                        <td align="center"><strong>Devolvido ao remetente</strong></td>
+                        <td align="center">Nome do recebedor</td>
+                        <td align="center"><strong>Objeto devolvido ao remetente</strong></td>
+                        <td align="center">Recebido por:</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">24</td>
+                        <td align="center"><strong>Disponível para retirada na caixa postal</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto disponível para retirada em Caixa Postal</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">25</td>
+                        <td align="center"><strong>Empresa sem expediente</strong></td>
+                        <td align="center">Entrega próximo dia útil</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Empresa sem expediente</strong></td>
+                        <td align="center">A entrega deverá ocorrer no próximo dia útil</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">26</td>
+                        <td align="center"><strong>Destinatário não apresentou-se para receber</strong></td>
+                        <td align="center">Objeto em devolução ao remetente</td>
+                        <td align="center"><strong>Destinatário não retirou objeto na Unidade dos Correios</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">28</td>
+                        <td align="center"><strong>Objeto avariado</strong></td>
+                        <td align="center">Por favor, entre em contato conosco clicando aqui.</td>
+                        <td align="center"><strong>Objeto e/ou conteúdo avariado</strong></td>
+                        <td align="center">Favor entrar em contato com os Correios.</td>
+                        <td align="center">Acionar atendimento dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">32</td>
+                        <td align="center"><strong>Distribuição especial agendada</strong></td>
+                        <td align="center">Data de entrega pré-estabelecida</td>
+                        <td align="center"><strong>Objeto com data de entrega agendada</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">33</td>
+                        <td align="center"><strong>Destinatário não apresentou a documentação</strong></td>
+                        <td align="center">Objeto em devolução ao remetente</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Destinatário não apresentou documento exigido</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">34</td>
+                        <td align="center"><strong>Endereço com numeração irregular - Em pesquisa</strong></td>
+                        <td align="center">Objeto sujeito a atraso na entrega</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Logradouro com numeração irregular</strong></td>
+                        <td align="center">Objeto sujeito a atraso na entrega ou a devolução ao remetente</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">35</td>
+                        <td align="center"><strong>Logística reversa simultânea</strong></td>
+                        <td align="center">Será realizada nova tentativa de entrega</td>
+                        <td align="center"><strong>Coleta ou entrega de objeto não efetuada</strong></td>
+                        <td align="center">Será realizada nova tentativa de coleta ou entrega</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">36</td>
+                        <td align="center"><strong>Logística reversa simultânea</strong></td>
+                        <td align="center">Objeto em devolução ao remetente</td>
+                        <td align="center"><strong>Coleta ou entrega de objeto não efetuada</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">37</td>
+                        <td align="center"><strong>Objeto conteúdo avariado - Veículo acidentado</strong></td>
+                        <td align="center">Por favor, entre em contato conosco clicando aqui.</td>
+                        <td align="center"><strong>Objeto e/ou conteúdo avariado por acidente com veículo</strong></td>
+                        <td align="center">Favor entrar em contato com os Correios.</td>
+                        <td align="center">Acionar atendimento dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">38</td>
+                        <td align="center"><strong>Objeto endereçado a empresa falida</strong></td>
+                        <td align="center">Objeto será entregue ao administrador judicial.</td>
+                        <td align="center"><strong>Objeto endereçado à empresa falida</strong></td>
+                        <td align="center">Objeto será encaminhado para entrega ao administrador judicial</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">40</td>
+                        <td align="center"><strong>Importação não autorizada por órgão da receita</strong></td>
+                        <td align="center">Objeto em devolução ao remetente</td>
+                        <td align="center"><strong>A importação do objeto/conteúdo não foi autorizada pelos órgãos fiscalizadores</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">41</td>
+                        <td align="center"><strong>Entrega condicionada à composição do lote</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>A entrega do objeto está condicionada à composição do lote</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar<strong></strong></td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">42</td>
+                        <td align="center"><strong>Lote incompleto - Em pesquisa</strong></td>
+                        <td align="center">Por favor, entre em contato conosco clicando aqui.</td>
+                        <td align="center"><strong>Lote de objetos incompleto</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">43</td>
+                        <td align="center"><strong>Objeto retido pelo órgão de fiscalização</strong></td>
+                        <td align="center">Por favor, entre em contato conosco clicando aqui.</td>
+                        <td align="center"><strong>Objeto apreendido por órgão de fiscalização ou outro órgão anuente</strong></td>
+                        <td align="center">Favor entrar em contato com os Correios.</td>
+                        <td align="center">Acionar atendimento dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">45</td>
+                        <td align="center"><strong>Entrega não efetuada por motivos operacionais</strong></td>
+                        <td align="center">Entrega prevista para o próximo dia útil</td>
+                        <td align="center"><strong>Objeto recebido na unidade de distribuição</strong></td>
+                        <td align="center">Entrega prevista para o próximo dia útil</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">46</td>
+                        <td align="center"><strong>Entrega não efetuada por motivos operacionais</strong></td>
+                        <td align="center">Entrega prevista para o próximo dia útil</td>
+                        <td align="center"><strong>Tentativa de entrega não efetuada</strong></td>
+                        <td align="center">Entrega prevista para o próximo dia útil</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">47</td>
+                        <td align="center"><strong>Cancelada a última informação</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Saída para entrega cancelada</strong></td>
+                        <td align="center">Será efetuado novo lançamento para entrega</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">48</td>
+                        <td align="center"><strong>Distribuição não autorizada</strong></td>
+                        <td align="center">Objeto em devolução ao remetente</td>
+                        <td align="center"><strong>Retirada em Unidade dos Correios não autorizada pelo remetente</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">49</td>
+                        <td align="center"><strong>Dimensões impossibilitam a entrega</strong></td>
+                        <td align="center">Objeto em devolução ao remetente</td>
+                        <td align="center"><strong>As dimensões do objeto impossibilitam o tratamento e a entrega</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">50</td>
+                        <td align="center"><strong>Objeto perdido em assalto ao carteiro</strong></td>
+                        <td align="center">Por favor, entre em contato conosco clicando aqui.</td>
+                        <td align="center"><strong>Objeto roubado</strong></td>
+                        <td align="center">Favor entrar em contato com os Correios.</td>
+                        <td align="center">Acionar atendimento dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">51</td>
+                        <td align="center"><strong>Objeto perdido em assalto a veículo dos correios</strong></td>
+                        <td align="center">Por favor, entre em contato conosco clicando aqui.</td>
+                        <td align="center"><strong>Objeto roubado</strong></td>
+                        <td align="center">Favor entrar em contato com os Correios.</td>
+                        <td align="center">Acionar atendimento dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">52</td>
+                        <td align="center"><strong>Objeto perdido em assalto a unidade dos correios</strong></td>
+                        <td align="center">Por favor, entre em contato conosco clicando aqui.</td>
+                        <td align="center"><strong>Objeto roubado</strong></td>
+                        <td align="center">Favor entrar em contato com os Correios.</td>
+                        <td align="center">Acionar atendimento dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">53</td>
+                        <td align="center"><strong>Objeto reimpresso e reenviado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto reimpresso e reenviado</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar. O objeto impresso pelos Correios precisou ser refeito e reenviado.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">54</td>
+                        <td align="center"><strong>AGUARDANDO DOCUMENTO FISCAL - ICMS IMPORTAÇÃO</strong></td>
+                        <td align="center">Por favor, aguarde.</td>
+                        <td align="center"><strong>Para recebimento do objeto, é necessário o pagamento do ICMS Importação</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar. O interessado deverá pagar o imposto devido para retirar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">55</td>
+                        <td align="center"><strong>EM REVISÃO DE TRIBUTO</strong></td>
+                        <td align="center">Por favor, aguarde.</td>
+                        <td align="center"><strong>Solicitada revisão do tributo estabelecido</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">56</td>
+                        <td align="center"><strong>Declaração aduaneira ausente ou incorreta</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center"><strong>Declaração aduaneira ausente ou incorreta</strong></td>
+                        <td align="center">Objeto será devolvido ao remetente</td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">57</td>
+                        <td align="center"><strong>OBJETO LIBERADO DE TRIBUTO</strong></td>
+                        <td align="center">Por favor, aguarde.</td>
+                        <td align="center"><strong>Revisão de tributo concluída - Objeto liberado</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">58</td>
+                        <td align="center"><strong>TRIBUTO ALTERADO</strong></td>
+                        <td align="center">Por favor, aguarde.</td>
+                        <td align="center"><strong>Revisão de tributo concluída - Tributo alterado</strong></td>
+                        <td align="center">O valor do tributo pode ter aumentado ou diminuído</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">59</td>
+                        <td align="center"><strong>TRIBUTO MANTIDO COM JUROS E MULTAS.</strong></td>
+                        <td align="center">Por favor, aguarde.</td>
+                        <td align="center"><strong>Revisão de tributo concluída - Tributo mantido</strong></td>
+                        <td align="center">Poderá haver incidência de juros e multa.</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">66</td>
+                        <td align="center"><strong>Área com distribuição sujeita a prazo diferenciado</strong></td>
+                        <td align="center">Restrição Temporária</td>
+                        <td align="center"><strong>Área com distribuição sujeita a prazo diferenciado</strong></td>
+                        <td align="center">Restrição de entrega domiciliar temporária</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BDE</strong><br><strong>BDI</strong><br><strong>BDR</strong></td>
+                        <td nowrap="nowrap" align="center">69</td>
+                        <td align="center"><strong>Não localizado no fluxo postal</strong></td>
+                        <td align="center">Por favor, entre em contato conosco clicando aqui.</td>
+                        <td align="center"><strong>Objeto com atraso na entrega</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>BLQ</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Objeto bloqueado a pedido do remetente</strong></td>
+                        <td align="center">Em tratamento, favor aguardar.</td>
+                        <td align="center"><strong>Entrega de objeto bloqueada a pedido do remetente</strong></td>
+                        <td align="center">Objeto em análise de destinação</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td align="center"><strong>CD</strong></td>
+                        <td align="center">0</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto recebido na Unidade dos Correios</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td align="center"><strong>CD</strong></td>
+                        <td align="center">1</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto recebido na Unidade dos Correios</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td align="center"><strong>CD</strong></td>
+                        <td align="center">2</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto recebido na Unidade dos Correios</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td align="center"><strong>CD</strong></td>
+                        <td align="center">3</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto recebido na Unidade dos Correios</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td align="center"><strong>CMT</strong></td>
+                        <td align="center">0</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto recebido na Unidade dos Correios</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>CO</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Coletado</strong><strong> </strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto coletado</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td align="center"><strong>CUN</strong></td>
+                        <td align="center">0</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto recebido na Unidade dos Correios</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td align="center"><strong>CUN</strong></td>
+                        <td align="center">1</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto recebido na Unidade dos Correios</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>DO</strong></td>
+                        <td align="center">0</td>
+                        <td align="center"><strong>Encaminhado</strong></td>
+                        <td align="center">Encaminhado para</td>
+                        <td align="center"><strong>Objeto encaminhado para</strong></td>
+                        <td align="center">&lt;nome da cidade&gt;</td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>DO</strong></td>
+                        <td align="center">1</td>
+                        <td align="center"><strong>Encaminhado</strong></td>
+                        <td align="center">Encaminhado para</td>
+                        <td align="center"><strong>Objeto encaminhado para</strong></td>
+                        <td align="center">&lt;nome da cidade&gt;</td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>DO</strong></td>
+                        <td align="center">2</td>
+                        <td align="center"><strong>Encaminhado</strong></td>
+                        <td align="center">Encaminhado para</td>
+                        <td align="center"><strong>Objeto encaminhado para</strong></td>
+                        <td align="center">&lt;nome da cidade&gt;</td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>EST</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Estornado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Favor desconsiderar a informação anterior</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>EST</strong></td>
+                        <td nowrap="nowrap" align="center">2</td>
+                        <td align="center"><strong>Estornado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Favor desconsiderar a informação anterior</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>EST</strong></td>
+                        <td nowrap="nowrap" align="center">3</td>
+                        <td align="center"><strong>Estornado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Favor desconsiderar a informação anterior</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>EST</strong></td>
+                        <td nowrap="nowrap" align="center">4</td>
+                        <td align="center"><strong>Estornado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Favor desconsiderar a informação anterior</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>EST</strong></td>
+                        <td nowrap="nowrap" align="center">5</td>
+                        <td align="center"><strong>Estornado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Favor desconsiderar a informação anterior</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>EST</strong></td>
+                        <td nowrap="nowrap" align="center">6</td>
+                        <td align="center"><strong>Estornado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Favor desconsiderar a informação anterior</strong></td>
+                        <td></td>
+                        <td align="center" colspan="2">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>EST</strong></td>
+                        <td nowrap="nowrap" align="center">9</td>
+                        <td align="center"><strong>Estornado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Favor desconsiderar a informação anterior</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>FC</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Devolvido a pedido do remetente</strong></td>
+                        <td align="center">Em tratamento, aguarde.</td>
+                        <td align="center"><strong>Objeto será devolvido por solicitação do remetente</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>FC</strong></td>
+                        <td nowrap="nowrap" align="center">2</td>
+                        <td align="center"><strong>Com entrega agendada</strong></td>
+                        <td align="center">Em tratamento, aguarde.</td>
+                        <td align="center"><strong>Objeto com data de entrega agendada</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>FC</strong></td>
+                        <td nowrap="nowrap" align="center">3</td>
+                        <td align="center"><strong>Mal encaminhado</strong></td>
+                        <td align="center">Em tratamento, aguarde.</td>
+                        <td align="center"><strong>Objeto mal encaminhado</strong></td>
+                        <td align="center">Encaminhamento a ser corrigido.</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>FC</strong></td>
+                        <td nowrap="nowrap" align="center">4</td>
+                        <td align="center"><strong>Mal endereçado</strong></td>
+                        <td align="center">Em tratamento, aguarde.</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Endereço incorreto</strong></td>
+                        <td align="center">Objeto sujeito a atraso na entrega ou a devolução ao remetente</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>FC</strong></td>
+                        <td nowrap="nowrap" align="center">5</td>
+                        <td align="center"><strong>Reintegrado</strong></td>
+                        <td align="center">Em tratamento, aguarde.</td>
+                        <td align="center"><strong>Objeto devolvido aos Correios</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>FC</strong></td>
+                        <td nowrap="nowrap" align="center">7</td>
+                        <td align="center"><strong>Restrição Lançamento Externo</strong></td>
+                        <td align="center">Em tratamento, aguarde.</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Empresa sem expediente</strong></td>
+                        <td align="center">A entrega deverá ocorrer no próximo dia útil</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">2</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">3</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">4</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">5</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">6</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">7</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>LDE</strong></td>
+                        <td nowrap="nowrap" align="center">0</td>
+                        <td align="center"><strong>Saiu para entrega</strong><strong> </strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto saiu para entrega ao remetente</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>LDI</strong></td>
+                        <td nowrap="nowrap" align="center">0</td>
+                        <td align="center"><strong>Aguardando retirada</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center"><strong>Objeto aguardando retirada no endereço indicado</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center">Acompanhar. O interessado deverá buscar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>LDI</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Aguardando retirada</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center"><strong>Objeto aguardando retirada no endereço indicado</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center">Acompanhar. O interessado deverá buscar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>LDI</strong></td>
+                        <td nowrap="nowrap" align="center">2</td>
+                        <td align="center"><strong>Disponível em Caixa Postal</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center"><strong>Objeto disponível para retirada em Caixa Postal</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar. O interessado deverá buscar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>LDI</strong></td>
+                        <td nowrap="nowrap" align="center">3</td>
+                        <td align="center"><strong>Aguardando retirada</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center"><strong>Objeto aguardando retirada no endereço indicado</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center">Acompanhar. O interessado deverá buscar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>LDI</strong></td>
+                        <td nowrap="nowrap" align="center">14</td>
+                        <td align="center"><strong>Aguardando retirada</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center"><strong>Objeto aguardando retirada no endereço indicado</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center">Acompanhar. O interessado deverá buscar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>OEC</strong></td>
+                        <td nowrap="nowrap" align="center">0</td>
+                        <td align="center"><strong>Saiu para entrega ao destinatário</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto saiu para entrega ao destinatário</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar. O interessado deverá buscar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>OEC</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Saiu para entrega ao destinatário</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto saiu para entrega ao destinatário</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>OEC</strong></td>
+                        <td nowrap="nowrap" align="center">9</td>
+                        <td align="center"><strong>Saiu para entrega ao remetente</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto saiu para entrega ao remetente</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PAR</strong></td>
+                        <td nowrap="nowrap" align="center">15</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">Recebido/destino</td>
+                        <td align="center"><strong>Objeto recebido em &lt;destino&gt;</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PAR</strong></td>
+                        <td nowrap="nowrap" align="center">16</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">Recebido/Brasil</td>
+                        <td align="center"><strong>Objeto recebido no Brasil</strong></td>
+                        <td align="center">Objeto sujeito à fiscalização e atraso na entrega</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PAR</strong></td>
+                        <td nowrap="nowrap" align="center">17</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">Liberado pela alfândega</td>
+                        <td align="center"><strong>Objeto liberado pela alfândega</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PAR</strong></td>
+                        <td nowrap="nowrap" align="center">18</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">Recebido na unidade de exportação</td>
+                        <td align="center"><strong>Objeto recebido na unidade de exportação</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PMT</strong></td>
+                        <td align="center">1</td>
+                        <td align="center"><strong>Partiu em meio de transporte</strong></td>
+                        <td align="center">Encaminhado para</td>
+                        <td align="center"><strong>Objeto encaminhado para</strong></td>
+                        <td align="center">&lt;nome da cidade&gt;</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PO</strong></td>
+                        <td nowrap="nowrap" align="center">0</td>
+                        <td align="center"><strong>Postado</strong><strong> </strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto postado</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PO</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Postado</strong><strong> </strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto postado</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PO</strong></td>
+                        <td nowrap="nowrap" align="center">9</td>
+                        <td align="center"><strong>Postado depois do horário limite da agência</strong></td>
+                        <td align="center">Objeto sujeito a encaminhamento no próximo dia útil</td>
+                        <td align="center"><strong>Objeto postado após o horário limite da agência</strong></td>
+                        <td align="center">Objeto sujeito a encaminhamento no próximo dia útil</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>RO</strong></td>
+                        <td nowrap="nowrap" align="center">0</td>
+                        <td align="center"><strong>Encaminhado</strong></td>
+                        <td align="center">Em trânsito para</td>
+                        <td align="center"><strong>Objeto encaminhado para</strong></td>
+                        <td align="center">&lt;nome da cidade&gt;</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>RO</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Encaminhado</strong></td>
+                        <td align="center">Em trânsito para</td>
+                        <td align="center"><strong>Objeto encaminhado para</strong></td>
+                        <td align="center">&lt;nome da cidade&gt;</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>TRI</strong></td>
+                        <td align="center">0</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">Encaminhado para</td>
+                        <td align="center"><strong>Objeto encaminhado para</strong></td>
+                        <td align="center">&lt;nome da cidade&gt;</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>EST</strong></td>
+                        <td nowrap="nowrap" align="center">9</td>
+                        <td align="center"><strong>Estornado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Favor desconsiderar a informação anterior</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>FC</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Devolvido a pedido do remetente</strong></td>
+                        <td align="center">Em tratamento, aguarde.</td>
+                        <td align="center"><strong>Objeto será devolvido por solicitação do remetente</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar o retorno do objeto ao remetente.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>FC</strong></td>
+                        <td nowrap="nowrap" align="center">2</td>
+                        <td align="center"><strong>Com entrega agendada</strong></td>
+                        <td align="center">Em tratamento, aguarde.</td>
+                        <td align="center"><strong>Objeto com data de entrega agendada</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>FC</strong></td>
+                        <td nowrap="nowrap" align="center">3</td>
+                        <td align="center"><strong>Mal encaminhado</strong></td>
+                        <td align="center">Em tratamento, aguarde.</td>
+                        <td align="center"><strong>Objeto mal encaminhado</strong></td>
+                        <td align="center">Encaminhamento a ser corrigido.</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>FC</strong></td>
+                        <td nowrap="nowrap" align="center">4</td>
+                        <td align="center"><strong>Mal endereçado</strong></td>
+                        <td align="center">Em tratamento, aguarde.</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Endereço incorreto</strong></td>
+                        <td align="center">Objeto sujeito a atraso na entrega ou a devolução ao remetente</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>FC</strong></td>
+                        <td nowrap="nowrap" align="center">5</td>
+                        <td align="center"><strong>Reintegrado</strong></td>
+                        <td align="center">Em tratamento, aguarde.</td>
+                        <td align="center"><strong>Objeto devolvido aos Correios</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>FC</strong></td>
+                        <td nowrap="nowrap" align="center">7</td>
+                        <td align="center"><strong>Restrição Lançamento Externo</strong></td>
+                        <td align="center">Em tratamento, aguarde.</td>
+                        <td align="center"><strong>A entrega não pode ser efetuada - Empresa sem expediente</strong></td>
+                        <td align="center">A entrega deverá ocorrer no próximo dia útil</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">2</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">3</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">4</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">5</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">6</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>IDC</strong></td>
+                        <td nowrap="nowrap" align="center">7</td>
+                        <td align="center"><strong>Indenizado</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto não localizado</strong></td>
+                        <td align="center">Houve indenização dos valores correspondentes</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>LDE</strong></td>
+                        <td nowrap="nowrap" align="center">0</td>
+                        <td align="center"><strong>Saiu para entrega</strong><strong> </strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto saiu para entrega ao remetente</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>LDI</strong></td>
+                        <td nowrap="nowrap" align="center">0</td>
+                        <td align="center"><strong>Aguardando retirada</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center"><strong>Objeto aguardando retirada no endereço indicado</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center">Acompanhar. O interessado deverá buscar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>LDI</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Aguardando retirada</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center"><strong>Objeto aguardando retirada no endereço indicado</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center">Acompanhar. O interessado deverá buscar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>LDI</strong></td>
+                        <td nowrap="nowrap" align="center">2</td>
+                        <td align="center"><strong>Disponível em Caixa Postal</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center"><strong>Objeto disponível para retirada em Caixa Postal</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar. O interessado deverá buscar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>LDI</strong></td>
+                        <td nowrap="nowrap" align="center">3</td>
+                        <td align="center"><strong>Aguardando retirada</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center"><strong>Objeto aguardando retirada no endereço indicado</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center">Acompanhar. O interessado deverá buscar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>LDI</strong></td>
+                        <td nowrap="nowrap" align="center">14</td>
+                        <td align="center"><strong>Aguardando retirada</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center"><strong>Objeto aguardando retirada no endereço indicado</strong></td>
+                        <td align="center">Endereço:</td>
+                        <td align="center">Acompanhar. O interessado deverá buscar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>OEC</strong></td>
+                        <td nowrap="nowrap" align="center">0</td>
+                        <td align="center"><strong>Saiu para entrega ao destinatário</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto saiu para entrega ao destinatário</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar. O interessado deverá buscar o objeto em uma Unidade dos Correios.</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>OEC</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Saiu para entrega ao destinatário</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto saiu para entrega ao destinatário</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>OEC</strong></td>
+                        <td nowrap="nowrap" align="center">9</td>
+                        <td align="center"><strong>Saiu para entrega ao remetente</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto saiu para entrega ao remetente</strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PAR</strong></td>
+                        <td nowrap="nowrap" align="center">15</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">Recebido/destino</td>
+                        <td align="center"><strong>Objeto recebido em &lt;destino&gt;</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PAR</strong></td>
+                        <td nowrap="nowrap" align="center">16</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">Recebido/Brasil</td>
+                        <td align="center"><strong>Objeto recebido no Brasil</strong></td>
+                        <td align="center">Objeto sujeito à fiscalização e atraso na entrega</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PAR</strong></td>
+                        <td nowrap="nowrap" align="center">17</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">Liberado pela alfândega</td>
+                        <td align="center"><strong>Objeto liberado pela alfândega</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PAR</strong></td>
+                        <td nowrap="nowrap" align="center">18</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">Recebido na unidade de exportação</td>
+                        <td align="center"><strong>Objeto recebido na unidade de exportação</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PMT</strong></td>
+                        <td align="center">1</td>
+                        <td align="center"><strong>Partiu em meio de transporte</strong></td>
+                        <td align="center">Encaminhado para</td>
+                        <td align="center"><strong>Objeto encaminhado para</strong></td>
+                        <td align="center">&lt;nome da cidade&gt;</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PO</strong></td>
+                        <td nowrap="nowrap" align="center">0</td>
+                        <td align="center"><strong>Postado</strong><strong> </strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto postado</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PO</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Postado</strong><strong> </strong></td>
+                        <td align="center">&nbsp;</td>
+                        <td align="center"><strong>Objeto postado</strong></td>
+                        <td></td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>PO</strong></td>
+                        <td nowrap="nowrap" align="center">9</td>
+                        <td align="center"><strong>Postado depois do horário limite da agência</strong></td>
+                        <td align="center">Objeto sujeito a encaminhamento no próximo dia útil</td>
+                        <td align="center"><strong>Objeto postado após o horário limite da agência</strong></td>
+                        <td align="center">Objeto sujeito a encaminhamento no próximo dia útil</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>RO</strong></td>
+                        <td nowrap="nowrap" align="center">0</td>
+                        <td align="center"><strong>Encaminhado</strong></td>
+                        <td align="center">Em trânsito para</td>
+                        <td align="center"><strong>Objeto encaminhado para</strong></td>
+                        <td align="center">&lt;nome da cidade&gt;</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>RO</strong></td>
+                        <td nowrap="nowrap" align="center">1</td>
+                        <td align="center"><strong>Encaminhado</strong></td>
+                        <td align="center">Em trânsito para</td>
+                        <td align="center"><strong>Objeto encaminhado para</strong></td>
+                        <td align="center">&lt;nome da cidade&gt;</td>
+                        <td align="center">Acompanhar</td>
+                    </tr><tr><td nowrap="nowrap" align="center"><strong>TRI</strong></td>
+                        <td align="center">0</td>
+                        <td align="center"><strong>Conferido</strong></td>
+                        <td align="center">Encaminhado para</td>
+                        <td align="center"><strong>Objeto encaminhado para</strong></td>
+                        <td align="center">&lt;nome da cidade&gt;</td>
+                        <td align="center">Acompanhar</td>
+                    </tr></tbody></table>
+
+        </div>
+    </body>
+</html>

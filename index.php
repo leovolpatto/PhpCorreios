@@ -5,7 +5,7 @@ require_once 'phpcorreios.inc.php';
 
 $p = new PhpCorreios\Proxy\CorreiosProxy();
 
-$var = $p->RastrearObjeto("PD288798027BR");
+$var = $p->RastrearObjeto("SW805972509BR");
 
 echo "<pre>";
 print_r($var);
