@@ -2,7 +2,7 @@
 
 namespace PhpCorreios\Proxy\Correios\Rastreamento\Util;
 
-final class CorreiosTiposEvento {
+final class CorreiosTiposEventos {
     
     public $eventos = array();
     

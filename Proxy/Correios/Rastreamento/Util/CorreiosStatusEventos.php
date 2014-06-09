@@ -19,8 +19,8 @@ class CorreiosStatusEventos {
     public function getEventoPorStatusTipo($status, $tipo) {
         foreach ($this->listStatusEventos as $evento) {
             if (strcasecmp($evento->status, $status) == 0) {
-                foreach ($evento->tipo as $evTipo) {
-                    if (strcasecmp($evTipo, $tipo) == 0) {
+                foreach ($evento->tipo as $evSigla => $evTipo) {
+                    if (strcasecmp($evSigla, $tipo) == 0) {
                         return $evento;
                     }
                 }
@@ -52,12 +52,14 @@ final class CorreiosStatusEvento {
     public $detalhe;
     public $procedimento;
     public $_cod_ref;
-
     public $_error;
-    
+
     public function __construct(array $evento) {
         if (!empty($evento['tipo'])) {
-            $this->tipo = $evento['tipo'];
+            $tpEvento = new CorreiosTiposEventos();
+            foreach ($evento['tipo'] as $tipo) {
+                $this->tipo[$tipo] = $tpEvento->GetDescricaoDoEvento($tipo);
+            }
             $this->status = $evento['status'];
             $this->descricao = $evento['descricao'];
             $this->detalhe = $evento['detalhe'];
