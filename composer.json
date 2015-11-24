@@ -1,0 +1,7 @@
+{
+    "name": "leovolpatto/php-correios",
+    "description": "A Correios lib",
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
