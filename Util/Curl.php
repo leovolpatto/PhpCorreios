@@ -42,7 +42,7 @@ final class Curl {
         {
             $result = curl_exec($ch);  
         } catch (Exception $ex) {
-               echo 'fezes';
+               echo $ex->getMessage();
         }
 
         if(curl_errno($ch)) 
